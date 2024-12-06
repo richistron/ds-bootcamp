@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ds-semana1"
+version = "0.1.0"
+description = "Data Science Semana 1"
+authors = ["Ricardo Rivas <richistron@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+jupyter = "^1.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
