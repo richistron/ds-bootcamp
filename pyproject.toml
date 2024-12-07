@@ -10,8 +10,8 @@ package-mode = false
 python = "^3.12"
 jupyter = "^1.1.1"
 pandas = "^2.2.3"
-black = "^24.10.0"
-
+black = {extras = ["jypyter"], version = "^24.10.0"}
+pylint = "^3.3.2"
 
 [build-system]
 requires = ["poetry-core"]
