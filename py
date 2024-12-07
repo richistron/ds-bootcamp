@@ -1,0 +1,5 @@
+#! /bin/bash
+
+source venv/bin/activate
+
+export PATH=$(pwd)/bin:$PATH
