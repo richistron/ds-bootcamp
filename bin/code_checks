@@ -1,0 +1,53 @@
+#! /bin/bash
+
+set -e
+
+file_name="$0"
+
+function usage() {
+  echo "Usage: $file_name [options]"
+  echo "Options:"
+  echo "  -h, --help    Show this help message and exit"
+  echo "  --fix         Fix the code style issues (when possible | default option)"
+  echo "  --check       Checks the code style"
+}
+
+# defaults
+mode="fix"
+
+if [ -z "$VIRTUAL_ENV" ]; then
+  echo "Please activate the virtual environment before running this:"
+  printf "\tsource activate"
+  exit 1
+fi
+
+# options
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    --check)
+      mode="check"
+      shift 1
+      ;;
+    --fix)
+      mode="fix"
+      shift 1
+      ;;
+    *)
+      echo "Unknown argument: $1"
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+if [ "$mode" == "fix" ]; then
+  black .
+else
+  black --check .
+fi
+
+pylint src

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+set -e
+
+asdf plugin add python
+asdf install
+python -m venv venv
+
+echo "virtual environment ready to use"
+echo "run the following commands to activate it:"
+echo "source venv/bin/activate"
+echo "pip install -U pip setuptools poetry"
+echo "poetry install"
